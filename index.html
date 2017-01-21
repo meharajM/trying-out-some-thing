@@ -3,7 +3,7 @@
 	<hread>
 		<title> Cat  clicker</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+		<link rel="stylesheet" type="text/css" href="style.css">
 		<!-- jQuery library -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
@@ -14,6 +14,57 @@
 		<div class="container">
 			<div class="page-header">
 				<h2>Cat Clicker</h2>
+			</div>
+			<div class="row">
+				<div class="cat-list col-xs-3">
+					<ul class="list-group">
+						<li class="list-group-item">cat 1 <span class="badge">2</span></li>
+						<li class="list-group-item">cat 2 <span class="badge">2</span></li>
+						<li class="list-group-item">cat 3 <span class="badge">2</span></li>
+					</ul>
+				</div>
+				<div class="col-xs-5">
+					<div class="details">
+						<h3>Name</h3>
+						<p>clicks 5</p>
+						<img src="cat.jpg"/>
+						<p>nick names</p>
+						<p>age</p>
+					</div>
+				</div>
+				<div class="col-xs-4">
+					<div class="update-info">
+						<div class="form-group">
+							<label for="name">Cat Name</label>
+							<input type="text" class="form-control" id="name"></input>
+						</div>
+						<div class="form-group">
+							<label for="image">Cat Image</label>
+							<input type="text" class="form-control" id="image"></input>
+						</div>
+						<div class="form-group">
+							<label for="clicks">Cat Clicks</label>
+							<input type="text" class="form-control" id="clicks"></input>
+						</div>
+					</div>
+					<button class="btn btn-success" id="save">Save</button>
+					<button class="btn btn-danger" id="cancel">Cancel</button>					
+				</div>
+			</div>
+			<div class="row">
+				<h4>Cats Image Gallery</h4>
+				<div class="gallary">
+					<div class="col-lg-3 col-sm-4 col-xs-6">
+						<a title="Image 1" href="#">
+							<div class="col-xs-12">
+								<h3>Name</h3>
+								<p>clicks 5</p>
+								<img src="cat.jpg"/>
+							</div>
+						</a>
+					</div>
+      
+				</div>
 			</div>
 		</div>
 	</body>
