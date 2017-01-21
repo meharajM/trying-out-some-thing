@@ -8,6 +8,9 @@ $(document).ready(function(){
 	$('.cat').bind('click',showCat);
 	$('.details').on('click','img',increaseClick);
 	$('li').bind('click',showListCat);
+	$('#open').bind('click',function(){
+		$('#update-form').removeClass('hidden');
+	})
 	function showListCat(ev){
 		$(".active").removeClass('active');
 		$(ev.currentTarget).addClass('active');
@@ -47,21 +50,33 @@ $(document).ready(function(){
 			if(clk >= 41 && clk < 60) return "Old";
 			if(clk >61) return "Very Old";		
 	}
+	function catExist(name){
+		var exist = false;
+		for(var i in catList){
+			if(catList[i].name == name){
+				exist = true;
+				break;
+			}
+		}
+		return exist;
+	}
 	function addCat(){		
 		var name = $('#name').val();
-		var img = $('#image').val();
-		var clk = $('#clicks').val();
-		var nNames = $('#nick-names').val();
-		var catObj = {
-			name: name,
-			img: img,
-			clk: clk,
-			age: getAge(clk),
-			names: nNames 
-		};
-		catList.push(catObj);
-		localStorage.setItem("catList",JSON.stringify(catList));
-		render_gallery();	
+		if(!catExist(name)){
+			var img = $('#image').val();
+			var clk = $('#clicks').val();
+			var nNames = $('#nick-names').val();
+			var catObj = {
+				name: name,
+				img: img,
+				clk: clk,
+				age: getAge(clk),
+				names: nNames 
+			};
+			catList.push(catObj);
+			localStorage.setItem("catList",JSON.stringify(catList));
+			render_gallery();	
+		}		
 	}
 	function render_gallery(){
 		var gallery = $('#gallery');
@@ -87,4 +102,5 @@ $(document).ready(function(){
 		$('age-'+id).html(selectedCat.age);
 		$('#clicks').val(selectedCat.clk);
 	}
+	$('li')[0].click();
 });
